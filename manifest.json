@@ -1,0 +1,27 @@
+{
+	"manifest_version":2,
+	"version":"0.0.1",
+	"name":"cookie查询",
+	"description":"查询weibo的cookie数据",
+	"browser_action":{
+	},
+	"background":{
+	"scripts":["./jquery-1.11.1.js","js/background.js"]
+	},
+	"icons":{
+		"128":"./icon/cookierspider.png"
+	},
+	"permissions":[
+	"cookies",
+	"*://*.weibo.com/*"
+	],
+	"content_scripts":[
+	{
+		"matches":["*://*.weibo.com/*"],
+		"js":["jquery-1.11.1.js","query.js"],
+		"run_at":"document_end",
+		"allframes":true
+	}
+	]
+
+}
